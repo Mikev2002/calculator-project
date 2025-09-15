@@ -10,22 +10,31 @@ This is a simple Python calculator application that supports:
 It also includes:
 
 ✅ Automated unit tests using `pytest`  
-✅ Continuous Integration with GitHub Actions  
-✅ A command-line REPL interface for interactive use
+✅ Continuous Integration with GitHub Actions (CI/CD)  
+✅ A command-line REPL interface for interactive use  
 
 ---
+
 ## 🧪 Running Tests
 
-To run tests locally:
+First, install dependencies (make sure your virtual environment is active):
 
 ```bash
-pytest
+pip install -r requirements.txt
 
-To start the calculator in the terminal:
+```
+Run test with pytest
+If everything is correct:
+collected 5 items
+.....                                                                 [100%]
+
+Running the Calculator (REPL)
+
 python main.py
 
-Then enter expressions like:
-5 + 3
-7 * 8
-10 / 0
-quit
+You will see:
+Simple Calculator (type 'quit' to exit)
+Enter operation (e.g. 2 + 3):
+
+Now just try: 
+2 + 3 
