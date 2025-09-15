@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from calculator.test_calc import add, subtract, multiply, divide
+from calculator.calc import add, subtract, multiply, divide
 import pytest
 
 def test_add():
@@ -20,4 +20,3 @@ def test_divide():
 def test_divide_by_zero():
     with pytest.raises(ValueError):
         divide(5, 0)
-
