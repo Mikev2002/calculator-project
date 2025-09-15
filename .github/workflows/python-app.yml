@@ -1,20 +1,26 @@
-name: CI - Calculator App with Docker
+name: Python application
 
 on: [push]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Docker
-      uses: docker/setup-buildx-action@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
 
-    - name: Build Docker image
-      run: docker build -t calculator-app .
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-    - name: Run tests inside Docker container
-      run: docker run calculator-app
+    - name: Run tests
+      run: |
+        export PYTHONPATH=$PYTHONPATH:$(pwd)
+        pytest
